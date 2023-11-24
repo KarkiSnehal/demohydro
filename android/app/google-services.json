@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "774300379527",
+    "project_id": "hydroponics-flutter",
+    "storage_bucket": "hydroponics-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774300379527:android:1fc3fbb1a514aa4b04cb22",
+        "android_client_info": {
+          "package_name": "com.hydroponics.hydrogang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774300379527-m2gvqf55a55r479o8c37rrov3hcpch98.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hydroponics.hydrogang",
+            "certificate_hash": "b3ff1274f9ff9367d4e23eba3ff8802de71450b7"
+          }
+        },
+        {
+          "client_id": "774300379527-6r1jrbn3cbd1cd6ue455j4utml09c4h4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB2Dn-TLeDtML9FK0K1TS-gCclAWisH1c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774300379527-6r1jrbn3cbd1cd6ue455j4utml09c4h4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "774300379527-a8bfole6an35a5u96m3k98i3gdo7tinc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hydroponics.hydrogang.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
