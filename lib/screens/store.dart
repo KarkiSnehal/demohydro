@@ -42,7 +42,7 @@ class Store extends StatelessWidget {
               child: Text('Hydroponic Vegetables'),
             ),
             Tab(
-              child: Text('Farm Vist'),
+              child: Text('Farm Visit'),
             ),
           ]);
 
@@ -52,6 +52,7 @@ class Store extends StatelessWidget {
       length: 9,
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           actions: [
             IconButton(
                 onPressed: () {},

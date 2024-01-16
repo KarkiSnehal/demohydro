@@ -1,7 +1,9 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:hydrogang/Widgets/Custom_shapes/Containers/circular_container.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:hydrogang/features/shop/screens/fruits.dart';
+import 'package:hydrogang/features/shop/screens/leafy_greens.dart';
+import 'package:hydrogang/screens/drawernav.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:hydrogang/Widgets/productverticalcard.dart';
 
@@ -10,7 +12,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int currentIndex = 0;
     List<String> assets = [
       'images/system/banner4.png',
       'images/system/banner3.png',
@@ -18,24 +19,20 @@ class HomeScreen extends StatelessWidget {
       'images/system/banner1.png',
     ];
     return Scaffold(
+      drawer: DrawerNav(),
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.white),
         centerTitle: true,
         actions: [
           IconButton(
               onPressed: () {},
-              icon: Icon(
-                Iconsax.more_circle_copy,
+              icon: const Icon(
+                Iconsax.location,
                 color: Colors.white,
               )),
         ],
-        leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Iconsax.menu_1_copy,
-              color: Colors.white,
-            )),
         title: const Text(
-          'Hydrogang',
+          'Doko Hydroponics',
           style: TextStyle(color: Colors.white),
         ),
         toolbarHeight: 80,
@@ -53,8 +50,8 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Container(
                         child: Container(
-                          child: Align(
-                              alignment: Alignment(0, -0.55),
+                          child: const Align(
+                              alignment: Alignment(0, -0.75),
                               child: Text(
                                 'Welcome',
                                 style: TextStyle(
@@ -65,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         width: 400,
                         height: 400,
-                        padding: EdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                         decoration: const BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage('images/home.png'),
@@ -73,24 +70,24 @@ class HomeScreen extends StatelessWidget {
                                 fit: BoxFit.cover)),
                       ),
                       Positioned(
-                        left: 7,
-                        top: 150,
+                        left: 10,
+                        top: 120,
                         child: GestureDetector(
                           onTap: () {},
                           child: Container(
-                            width: 380,
+                            width: 375,
                             height: 50,
                             padding: const EdgeInsets.all(13),
                             decoration: BoxDecoration(
                               color: Colors.white60,
                               borderRadius: BorderRadius.circular(16),
                             ),
-                            child: Row(children: [
+                            child: const Row(children: [
                               Icon(
                                 Iconsax.search_normal_1_copy,
                                 color: Colors.black54,
                               ),
-                              const SizedBox(
+                              SizedBox(
                                 width: 10,
                               ),
                               Text(
@@ -102,14 +99,14 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Positioned(
-                        top: 230,
+                      const Positioned(
+                        top: 200,
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(9.0),
                           child: Column(
                             children: [
                               Text(
-                                'Popular Categories',
+                                'Pick your Hydroponics system',
                                 style: TextStyle(
                                     fontSize: 16, color: Colors.white),
                               ),
@@ -121,64 +118,77 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       Positioned(
-                        top: 256,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
+                        top: 240,
+                        left: 3,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: SizedBox(
-                            height: 150,
-                            child: ListView.builder(
-                                itemCount: 5,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (_, index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(right: 11),
-                                    child: Column(
-                                      children: [
-                                        Container(
-                                          width: 80,
-                                          height: 80,
-                                          padding: const EdgeInsets.all(12),
-                                          decoration: BoxDecoration(
-                                            color: Colors.white60,
-                                            borderRadius:
-                                                BorderRadius.circular(12),
-                                          ),
-                                          child: const Center(
-                                            child: Image(
-                                              image: AssetImage(
-                                                "images/system/iconssystem.png",
-                                              ),
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-
-                                        //Text
-                                        const SizedBox(
-                                          height: 15,
-                                        ),
-                                        SizedBox(
-                                          width: 55,
-                                          child: Text(
-                                            'System',
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                color: Colors.white),
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  );
-                                }),
+                          child: Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () => Get.to(() => const LeafyGreens()),
+                                child: Container(
+                                  height: 140,
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white60,
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  child: const Image(
+                                    image: AssetImage(
+                                        "images/system/leafygreens.png"),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
+                      const Positioned(
+                          top: 368,
+                          left: 60,
+                          child: Text(
+                            'Leafy Greens',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 5, 91, 12),
+                            ),
+                          )),
+                      Positioned(
+                        top: 240,
+                        right: 0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              GestureDetector(
+                                onTap: () => Get.to(() => const Fruits()),
+                                child: Container(
+                                  height: 140,
+                                  width: 180,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white60,
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  child: const Center(
+                                    child: Image(
+                                      image: AssetImage(
+                                          "images/system/strawberry.png"),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      const Positioned(
+                          top: 368,
+                          left: 280,
+                          child: Text(
+                            'Fruits',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 5, 91, 12),
+                            ),
+                          )),
                     ],
                   ),
                 ],
@@ -191,7 +201,7 @@ class HomeScreen extends StatelessWidget {
                   reverse: true,
                   padEnds: false,
                   pageSnapping: false,
-                  physics: BouncingScrollPhysics(),
+                  physics: const BouncingScrollPhysics(),
                   itemCount: assets.length,
                   controller:
                       PageController(initialPage: 3, viewportFraction: 0.7),
@@ -209,14 +219,15 @@ class HomeScreen extends StatelessWidget {
                     );
                   }),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
+            const Padding(
+              padding: EdgeInsets.only(left: 10),
               child: Align(
                 alignment: Alignment.bottomLeft,
                 child: Text(
                   'Popular Products',
                   style: TextStyle(
                     fontSize: 16,
+                    color: Color.fromARGB(255, 5, 91, 12),
                   ),
                 ),
               ),
@@ -224,15 +235,15 @@ class HomeScreen extends StatelessWidget {
             GridView.builder(
               itemCount: 6,
               shrinkWrap: true,
-              padding: EdgeInsets.only(top: 8),
+              padding: const EdgeInsets.only(top: 8),
               physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
                 mainAxisExtent: 288,
               ),
-              itemBuilder: (_, index) => CProductCardVertical(),
+              itemBuilder: (_, index) => const CProductCardVertical(),
             ),
           ],
         ),

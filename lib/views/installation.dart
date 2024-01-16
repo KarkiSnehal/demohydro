@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class InstallationPage extends StatelessWidget {
   const InstallationPage({super.key});
@@ -7,7 +8,14 @@ class InstallationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Installation Procedure'),
+        title: Text(
+          'Installation',
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+        toolbarHeight: 80,
+        backgroundColor: Color.fromARGB(255, 5, 91, 12),
+        automaticallyImplyLeading: false,
       ),
     );
   }

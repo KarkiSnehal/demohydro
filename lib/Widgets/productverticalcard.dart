@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:hydrogang/Widgets/Custom_shapes/Containers/circular_container.dart';
+
 import 'package:hydrogang/screens/product_details/widgets/product_details.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -125,8 +124,9 @@ class CProductCardVertical extends StatelessWidget {
                         child: GestureDetector(
                           onTap: () {},
                           child: Icon(
-                            Iconsax.add_circle,
+                            Iconsax.add,
                             color: Color.fromARGB(255, 5, 91, 12),
+                            size: 30,
                           ),
                         ),
                       ),

@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="hydrogang"
+        android:label="Doko Hydroponics"
         android:name="androidx.multidex.MultiDexApplication"
         android:icon="@mipmap/launcher_icon">
         <activity

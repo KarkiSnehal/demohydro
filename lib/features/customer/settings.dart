@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:hydrogang/Widgets/Custom_shapes/Containers/circular_container.dart';
+import 'package:get/get.dart';
+
 import 'package:hydrogang/Widgets/Custom_shapes/header.dart';
+import 'package:hydrogang/data/repositories/authentication/authentication_repository.dart';
+import 'package:hydrogang/features/customer/logout_separate.dart';
+import 'package:hydrogang/features/personalization/controllers/user_controller.dart';
+import 'package:hydrogang/screens/profile.dart';
+import 'package:hydrogang/screens/t_circular_image.dart';
+import 'package:hydrogang/utilities/constants/image_strings.dart';
+
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -8,8 +16,11 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
+
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         automaticallyImplyLeading: false,
         title: const Text(
           'Account',
@@ -29,9 +40,18 @@ class SettingsScreen extends StatelessWidget {
                 height: 105,
                 width: 105,
                 child: Stack(fit: StackFit.expand, children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage('images/profile.jpg'),
-                  ),
+                  Obx(() {
+                    final networkImage = controller.user.value.profilePicture;
+                    final image = networkImage.isEmpty
+                        ? networkImage
+                        : CustomImages.profile;
+
+                    return TCircularImage(
+                        image: CustomImages.profile,
+                        width: 80,
+                        height: 80,
+                        isNetworkImage: networkImage.isNotEmpty);
+                  }),
                   Positioned(
                     right: 0,
                     bottom: 0,
@@ -43,24 +63,24 @@ class SettingsScreen extends StatelessWidget {
                       height: 45,
                       width: 45,
                       child: IconButton(
-                          onPressed: () {},
+                          onPressed: () => Get.to(() => const ProfileScreen()),
                           color: Colors.white,
-                          icon: Icon(Iconsax.camera_copy, color: Colors.white)),
+                          icon: Icon(Iconsax.edit_copy, color: Colors.white)),
                     ),
-                  )
+                  ),
                 ]),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
-                'User',
+                controller.user.value.username,
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
               ),
               SizedBox(
                 height: 5,
               ),
-              Text('useremail@gmail.com'),
+              Text(controller.user.value.email),
               SizedBox(
                 height: 25,
               ),
@@ -95,15 +115,9 @@ class SettingsScreen extends StatelessWidget {
                 onTap: () {},
               ),
               MenuTitleHeader(
-                icon: Icons.account_balance_rounded,
-                title: 'Bank Account',
-                subtitle: 'Withdraw balance to registered bank account',
-                onTap: () {},
-              ),
-              MenuTitleHeader(
-                icon: Icons.discount_rounded,
-                title: 'My Coupons',
-                subtitle: 'List of all discounted coupons',
+                icon: Icons.water_drop_rounded,
+                title: 'My Systems',
+                subtitle: 'Add, remove products and move to checkout',
                 onTap: () {},
               ),
               MenuTitleHeader(
@@ -112,67 +126,10 @@ class SettingsScreen extends StatelessWidget {
                 subtitle: 'Set any kind of notification message',
                 onTap: () {},
               ),
-              MenuTitleHeader(
-                icon: Icons.security_rounded,
-                title: 'Account Privacy',
-                subtitle: 'Manage data usage and connected accounts',
-                onTap: () {},
-              ),
               SizedBox(
                 height: 10,
               ),
-              const Align(
-                  alignment: Alignment(-0.85, -0.55),
-                  child: Text(
-                    'App Settings',
-                    style: TextStyle(
-                        fontSize: 16,
-                        color: Color.fromARGB(255, 5, 91, 12),
-                        fontWeight: FontWeight.w600),
-                  )),
-              SizedBox(
-                height: 5,
-              ),
-              MenuTitleHeader(
-                icon: Icons.upload_file_rounded,
-                title: 'Load Data',
-                subtitle: 'Upload Data to your Cloud Firebase',
-                onTap: () {},
-              ),
-              MenuTitleHeader(
-                icon: Icons.location_on,
-                title: 'Geolocation',
-                subtitle: 'Set recommendation based on location',
-                trailing: Switch(value: true, onChanged: (value) {}),
-              ),
-              MenuTitleHeader(
-                icon: Icons.health_and_safety,
-                title: 'Safe Mode',
-                subtitle: 'Search result is safe for all ages',
-                trailing: Switch(value: false, onChanged: (value) {}),
-              ),
-              MenuTitleHeader(
-                icon: Icons.image,
-                title: 'HD Image Quality',
-                subtitle: 'Set image quality to be seen',
-                trailing: Switch(value: false, onChanged: (value) {}),
-              ),
-              //Logout
-              SizedBox(
-                height: 20,
-              ),
-
-              ElevatedButton(
-                child: Text(
-                  'Logout',
-                  style: TextStyle(fontSize: 18),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.all(15.0),
-                  fixedSize: Size(350, 60),
-                ),
-                onPressed: () {},
-              ),
+              const LogOut(),
               SizedBox(
                 height: 30,
               ),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hydrogang/views/login_view.dart';
-//import 'package:hydrogang/views/login_view.dart';
-import 'package:hydrogang/views/register_view.dart';
 
 class Start extends StatelessWidget {
   const Start({super.key});
@@ -13,12 +11,13 @@ class Start extends StatelessWidget {
         Container(
           decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("images/tower1.png"), fit: BoxFit.cover)),
+                  image: AssetImage("images/towerr.png"), fit: BoxFit.cover)),
         ),
         Center(
           child: Image.asset(
-            "images/Component7.png",
-            width: 300,
+            "images/system/doko.png",
+            width: 150,
+            height: 227,
           ),
         ),
         Column(
@@ -27,9 +26,14 @@ class Start extends StatelessWidget {
               child: Align(
                 alignment: Alignment(0.0, 0.7),
                 child: ElevatedButton(
-                  child: const Text('Get Started'),
+                  child: const Text(
+                    'Get Started',
+                    style: TextStyle(
+                        fontSize: 18, color: Color.fromARGB(255, 5, 91, 12)),
+                  ),
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.all(15.0),
+                    backgroundColor: Color.fromARGB(255, 192, 216, 193),
+                    padding: EdgeInsets.all(10.0),
                     fixedSize: Size(200, 50),
                   ),
                   onPressed: () {

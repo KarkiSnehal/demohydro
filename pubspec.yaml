@@ -39,17 +39,25 @@ dependencies:
   cloud_firestore: ^4.12.1
   firebase_analytics: ^10.6.2
   google_fonts: ^6.1.0
-  flutter_launcher_icons: ^0.13.1
+  youtube_player_flutter: ^8.1.2
+
   google_sign_in: ^6.1.6
 
   get: ^4.6.5
+  get_storage: ^2.1.1
   iconsax_flutter: ^1.0.0
   carousel_slider: ^4.2.1
+  firebase_ui_auth: ^1.10.0
+  smooth_page_indicator: ^1.1.0
+  image_picker: ^1.0.7
+  firebase_storage: ^11.6.0
+  cached_network_image: ^3.3.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   icons_launcher: ^2.1.4
+  flutter_launcher_icons: "^0.13.1"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -61,7 +69,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/AppIcon-29.png"
+  image_path: "assets/icons/doko.png"
 
   min_sdk_android: 21
 

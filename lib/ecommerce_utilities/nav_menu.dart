@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hydrogang/features/customer/settings.dart';
 import 'package:hydrogang/screens/home.dart';
-import 'package:hydrogang/screens/message.dart';
-import 'package:hydrogang/screens/profile.dart';
+
 import 'package:hydrogang/screens/store.dart';
 import 'package:hydrogang/screens/wishlist.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
@@ -25,8 +24,6 @@ class NavigationMenu extends StatelessWidget {
               NavigationDestination(icon: Icon(Iconsax.shop), label: 'Shop'),
               NavigationDestination(
                   icon: Icon(Iconsax.heart), label: 'Wishlist'),
-              NavigationDestination(
-                  icon: Icon(Iconsax.message), label: 'Message'),
               NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
             ]),
       ),
@@ -42,7 +39,6 @@ class NavigationController extends GetxController {
     const HomeScreen(),
     const Store(),
     const WishListScreen(),
-    const MessageScreen(),
     const SettingsScreen(),
   ];
 }
