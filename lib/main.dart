@@ -1,11 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:geolocator/geolocator.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hydrogang/data/repositories/authentication/authentication_repository.dart';
-
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:hydrogang/firebase_options.dart';
 
 import 'package:get/get.dart';
@@ -85,5 +86,55 @@ class HomePage extends StatelessWidget {
         }),
       ),
     );
+  }
+}
+
+class HomeMapScreen extends StatelessWidget {
+  const HomeMapScreen({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Colors.red),
+            onPressed: () {
+              openMap(context);
+            },
+            child: Text(
+              'Open Google Map with My Location',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future<void> openMap(BuildContext context) async {
+    try {
+      // Get the current location
+      Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.high);
+
+      // Print the obtained location
+      print('Obtained Location: ${position.latitude}, ${position.longitude}');
+
+      // Open Google Maps with the user's current location
+      String googleMapUrl =
+          "https://www.google.com/maps/search/?api=1&query=${position.latitude},${position.longitude}";
+
+      if (await canLaunch(googleMapUrl)) {
+        await launch(googleMapUrl);
+      } else {
+        throw 'Could not open Google Maps';
+      }
+    } catch (e) {
+      print("Error getting location or opening map: $e");
+      // Handle errors or show a message to the user
+    }
   }
 }
