@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 import 'package:hydrogang/features/personalization/controllers/user_controller.dart';
 import 'package:hydrogang/screens/change_name.dart';
 import 'package:hydrogang/screens/profile_menu.dart';
@@ -14,7 +12,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = UserController.instance;
+    final controller = Get.put(UserController());
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
@@ -46,12 +44,11 @@ class ProfileScreen extends StatelessWidget {
                             Obx(() {
                               final networkImage =
                                   controller.user.value.profilePicture;
-                              // final image = networkImage.isEmpty
-                              //     ? networkImage
-                              //     : CustomImages.profile;
-
+                              final image = networkImage.isEmpty
+                                  ? networkImage
+                                  : CustomImages.profile;
                               return TCircularImage(
-                                  image: CustomImages.profile,
+                                  image: image,
                                   width: 80,
                                   height: 80,
                                   isNetworkImage: networkImage.isNotEmpty);
@@ -129,11 +126,6 @@ class ProfileScreen extends StatelessWidget {
                   onPressed: () {},
                   title: 'E-mail',
                   value: controller.user.value.email),
-
-              ProfileMenu(
-                  onPressed: () {},
-                  title: 'Date of Birth',
-                  value: '10 Oct 1998'),
 
               const SizedBox(
                 height: 16,

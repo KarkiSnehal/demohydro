@@ -39,4 +39,7 @@ class CustomTexts {
   static const String and = "and";
   static const String privacyPolicy = "Privacy Policy";
   static const String termsOfUse = "Terms of use";
+  static const String titlemodel = "GreenCheck: Instant Nutrient Diagnosis";
+  static const String lettuce =
+      "Upload a snapshot of your lettuce plant, and let our app diagnose any nutrient deficiencies with precision.";
 }

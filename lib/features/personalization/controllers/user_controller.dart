@@ -77,17 +77,22 @@ class UserController extends GetxController {
       if (image != null) {
         imageUploading.value = true;
         //Upload image
-        final imageUrl =
-            await userRepository.uploadImage('Users/Images/Profile', image);
-        //update user image record
-        Map<String, dynamic> json = {'ProfilePicture': imageUrl};
-        await userRepository.updateSingleField(json);
 
-        user.value.profilePicture = imageUrl;
-        user.refresh();
-        TLoaders.successSnackBar(
-            title: 'Congratulations',
-            message: 'Your Profile Image has been updated!');
+        final imageUrl =
+            await userRepository.uploadImage('Users/Images/Profile/', image);
+
+        if (imageUrl.isNotEmpty) {
+          //gs://hydroponics-flutter.appspot.com/Users/Images/Profile/scaled_IMG-20240113-WA0016.jpg
+          //update user image record
+          Map<String, dynamic> json = {'ProfilePicture': imageUrl};
+          await userRepository.updateSingleField(json);
+
+          user.value.profilePicture = imageUrl;
+          user.refresh();
+          TLoaders.successSnackBar(
+              title: 'Congratulations',
+              message: 'Your Profile Image has been updated!');
+        }
       }
     } catch (e) {
       TLoaders.errorSnackBar(

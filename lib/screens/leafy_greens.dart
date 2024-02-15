@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:hydrogang/features/shop/screens/systembuy.dart';
+import 'package:hydrogang/screens/productsbycategories.dart';
+
+import 'package:hydrogang/screens/systembuy.dart';
 
 class LeafyGreens extends StatelessWidget {
   const LeafyGreens({super.key});
@@ -26,7 +27,9 @@ class LeafyGreens extends StatelessWidget {
               children: [
                 //horizontal system
                 GestureDetector(
-                  onTap: () => Get.to(() => const SystemBuy()),
+                  onTap: () => Get.to(() => ProductsByCategory(
+                        categoryname: 'Horizontal System',
+                      )),
                   child: Container(
                     height: 400,
                     width: 350,
@@ -61,7 +64,9 @@ class LeafyGreens extends StatelessWidget {
                 ),
 //vertical system
                 GestureDetector(
-                  onTap: () => Get.to(() => const SystemBuy()),
+                  onTap: () => Get.to(() => const ProductsByCategory(
+                        categoryname: 'Vertical System',
+                      )),
                   child: Container(
                     height: 400,
                     width: 350,

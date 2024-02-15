@@ -1,17 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hydrogang/data/repositories/authentication/authentication_repository.dart';
-
 import 'package:hydrogang/firebase_options.dart';
-
 import 'package:get/get.dart';
 
-//import 'package:hydrogang/views/register_view.dart';
-//import 'package:hydrogang/views/start_view.dart';
 Future<void> main() async {
   //widget binding
   final WidgetsBinding widgetsBinding =
@@ -27,19 +23,21 @@ Future<void> main() async {
       .then((FirebaseApp value) => Get.put(AuthenticationRepository()));
 
   runApp(
-    GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: GoogleFonts.lato().fontFamily,
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(248, 43, 49, 39)),
-        useMaterial3: true,
-      ),
-      home: const Scaffold(
-        backgroundColor: Color.fromARGB(255, 5, 91, 12),
-        body: Center(
-          child: CircularProgressIndicator(
-            color: Colors.white,
+    ProviderScope(
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          fontFamily: GoogleFonts.lato().fontFamily,
+          colorScheme:
+              ColorScheme.fromSeed(seedColor: Color.fromARGB(248, 43, 49, 39)),
+          useMaterial3: true,
+        ),
+        home: const Scaffold(
+          backgroundColor: Color.fromARGB(255, 5, 91, 12),
+          body: Center(
+            child: CircularProgressIndicator(
+              color: Colors.white,
+            ),
           ),
         ),
       ),

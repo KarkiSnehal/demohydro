@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:hydrogang/Widgets/Custom_shapes/header.dart';
-import 'package:hydrogang/data/repositories/authentication/authentication_repository.dart';
+
 import 'package:hydrogang/features/customer/logout_separate.dart';
 import 'package:hydrogang/features/personalization/controllers/user_controller.dart';
 import 'package:hydrogang/screens/profile.dart';
@@ -16,7 +16,7 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = UserController.instance;
+    final controller = Get.put(UserController());
 
     return Scaffold(
       appBar: AppBar(
@@ -45,9 +45,8 @@ class SettingsScreen extends StatelessWidget {
                     final image = networkImage.isEmpty
                         ? networkImage
                         : CustomImages.profile;
-
                     return TCircularImage(
-                        image: CustomImages.profile,
+                        image: image,
                         width: 80,
                         height: 80,
                         isNetworkImage: networkImage.isNotEmpty);

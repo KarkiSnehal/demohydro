@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:hydrogang/features/shop/screens/systembuy.dart';
+import 'package:hydrogang/screens/productsbycategories.dart';
+import 'package:hydrogang/screens/systembuy.dart';
 
 class Fruits extends StatelessWidget {
   const Fruits({super.key});
@@ -26,7 +26,9 @@ class Fruits extends StatelessWidget {
             children: [
               //hybrid system
               GestureDetector(
-                onTap: () => Get.to(() => const SystemBuy()),
+                onTap: () => Get.to(() => ProductsByCategory(
+                      categoryname: 'Hybrid System',
+                    )),
                 child: Container(
                   height: 400,
                   width: 350,

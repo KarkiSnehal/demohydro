@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hydrogang/screens/order.dart';
 
 import 'package:hydrogang/screens/product_details/widgets/product_details.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
@@ -10,8 +12,8 @@ class CProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ProductDetail()));
+        // Navigator.push(
+        //     context, MaterialPageRoute(builder: (context) => ProductDetail()));
       },
       child: Container(
         width: 180,
@@ -33,14 +35,13 @@ class CProductCardVertical extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: Colors.grey.withOpacity(0.1),
+                color: Colors.grey.withOpacity(0.2),
               ),
               child: Stack(
                 children: [
                   //Thumbnail image
                   Image(
-                    image: AssetImage(
-                        'images/cardimages/accessories/Dutch-Bucket.jpg'),
+                    image: AssetImage('images/hybridsys.png'),
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -82,31 +83,13 @@ class CProductCardVertical extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Dutch Bucket',
+                    'Module – MX 1040',
                     style: TextStyle(
                       fontSize: 16,
                       overflow: TextOverflow.ellipsis,
                     ),
                     maxLines: 2,
                     textAlign: TextAlign.left,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'Bato bucket',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      const SizedBox(
-                        width: 6,
-                      ),
-                      Icon(
-                        Iconsax.verify,
-                        color: Colors.blue,
-                        size: 18,
-                      ),
-                    ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,7 +105,9 @@ class CProductCardVertical extends StatelessWidget {
                       ),
                       Container(
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(() => OrderConfirmScreen());
+                          },
                           child: Icon(
                             Iconsax.add,
                             color: Color.fromARGB(255, 5, 91, 12),
