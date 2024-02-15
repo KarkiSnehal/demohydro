@@ -11,7 +11,7 @@ import 'package:hydrogang/screens/leafy_greens.dart';
 import 'package:hydrogang/utilities/constants/text_strings.dart';
 import 'package:hydrogang/views/search.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:geolocator/geolocator.dart'; // Import the geolocator package
+import 'package:hydrogang/Widgets/productverticalcard.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -70,9 +70,7 @@ class HomeScreen extends ConsumerWidget {
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {
-                //MapUtils.openMap(27.699207495886032, 85.29707592698757);
-              },
+              onPressed: () {},
               icon: const Icon(
                 Iconsax.location,
                 color: Colors.white,

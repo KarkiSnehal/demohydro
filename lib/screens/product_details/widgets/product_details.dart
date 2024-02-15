@@ -8,6 +8,10 @@ class ProductDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Example static rating and quantity values
+    double rating = 4;
+    int quantity = 10; // Replace with your actual quantity value
+
     return Scaffold(
       appBar: AppBar(
         title: Text(product.name ?? 'Product Detail'),

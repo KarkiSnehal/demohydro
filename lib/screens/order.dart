@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import 'package:hydrogang/screens/esewa.dart';
 import 'package:hydrogang/screens/order_success.dart';
 
 class OrderConfirmScreen extends StatelessWidget {
@@ -9,8 +11,10 @@ class OrderConfirmScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Order Confirmation"),
+        title: Text("Order Confirm"),
         centerTitle: true,
+        // backgroundColor: Colors.transparent,
+        // foregroundColor: Colors.black,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -24,7 +28,7 @@ class OrderConfirmScreen extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                "Shipping address",
+                "shipping address",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
               SizedBox(
@@ -49,7 +53,7 @@ class OrderConfirmScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Address: ",
+                          "Dear ",
                           style: TextStyle(fontSize: 18),
                         ),
                         TextButton(
@@ -112,10 +116,10 @@ class OrderConfirmScreen extends StatelessWidget {
                   SizedBox(width: 20),
                   TextButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => EsewaScreen()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EsewaScreen()));
                     },
                     child: Text(
                       "Payment through e-sewa",
