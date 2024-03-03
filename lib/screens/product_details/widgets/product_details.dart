@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'package:hydrogang/models/cartitem.dart';
 import 'package:hydrogang/models/productmodel.dart';
 
 class ProductDetail extends StatelessWidget {

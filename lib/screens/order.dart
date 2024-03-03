@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:hydrogang/screens/esewa.dart';
 import 'package:hydrogang/screens/order_success.dart';
 
 class OrderConfirmScreen extends StatelessWidget {
@@ -13,8 +12,6 @@ class OrderConfirmScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Order Confirm"),
         centerTitle: true,
-        // backgroundColor: Colors.transparent,
-        // foregroundColor: Colors.black,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -28,7 +25,7 @@ class OrderConfirmScreen extends StatelessWidget {
                 height: 15,
               ),
               Text(
-                "shipping address",
+                "Shipping Address",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
               ),
               SizedBox(
@@ -60,8 +57,9 @@ class OrderConfirmScreen extends StatelessWidget {
                           onPressed: () {},
                           child: Text(
                             "Change",
-                            style:
-                                TextStyle(fontSize: 18, color: Colors.orange),
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Color.fromARGB(255, 5, 91, 12)),
                           ),
                         ),
                       ],
@@ -84,13 +82,6 @@ class OrderConfirmScreen extends StatelessWidget {
                   Text(
                     "Payment Method",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Change",
-                      style: TextStyle(fontSize: 18, color: Colors.orange),
-                    ),
                   ),
                 ],
               ),
@@ -116,10 +107,10 @@ class OrderConfirmScreen extends StatelessWidget {
                   SizedBox(width: 20),
                   TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EsewaScreen()));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => EsewaScreen()));
                     },
                     child: Text(
                       "Payment through e-sewa",
@@ -149,7 +140,7 @@ class OrderConfirmScreen extends StatelessWidget {
                   ),
                   SizedBox(width: 20),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => OrderSuccesScreen()),
                     child: Text(
                       "Cash on delivery",
                       style: TextStyle(fontSize: 14, color: Colors.black),
@@ -160,19 +151,19 @@ class OrderConfirmScreen extends StatelessWidget {
               SizedBox(
                 height: 50,
               ),
-              Column(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "sub total amount",
+                    "Sub Total Amount",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                   ),
                   Text(
-                    "Rs.145",
+                    "Rs.45000.93",
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
@@ -181,19 +172,19 @@ class OrderConfirmScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Shipping Fee",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                   ),
                   Text(
-                    " Rs.55",
+                    "Rs.1000",
                     style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -205,47 +196,42 @@ class OrderConfirmScreen extends StatelessWidget {
                 height: 30,
                 color: Colors.black,
               ),
-              Column(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "total amount",
+                    "Total Amount",
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                   ),
                   Text(
-                    "\Rs.145",
+                    "\Rs.46000.93",
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: Colors.redAccent,
+                      color: Color.fromARGB(255, 5, 91, 12),
                     ),
                   ),
                 ],
               ),
               SizedBox(height: 30),
-              Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  // children: [
-                  //   Text(
-                  //     "Payment Method",
-                  //     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                  ),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => OrderSuccesScreen()));
-                },
-                child: Text(
-                  "Proceed Payment ",
-                  style: TextStyle(fontSize: 18, color: Colors.orange),
-                ),
+              SizedBox(
+                height: 50,
               ),
+              SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Color.fromARGB(255, 5, 91, 12)),
+                      onPressed: () => Get.to(() => OrderSuccesScreen()),
+                      child: Text(
+                        'Proceed Payment',
+                        style: TextStyle(color: Colors.white),
+                      ))),
             ],
           ),
         )),

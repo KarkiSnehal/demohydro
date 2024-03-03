@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hydrogang/features/customer/settings.dart';
 
 import 'package:hydrogang/features/personalization/controllers/user_controller.dart';
+import 'package:hydrogang/screens/cart.dart';
 
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -23,12 +25,12 @@ class DrawerNav extends StatelessWidget {
           ListTile(
             leading: Icon(Iconsax.user),
             title: Text('My Account'),
-            onTap: () {},
+            onTap: () => Get.to(() => SettingsScreen()),
           ),
           ListTile(
             leading: Icon(Icons.water_drop_rounded),
             title: Text('My Systems'),
-            onTap: () {},
+            onTap: () => Get.to(() => AddtoCartScreen()),
           ),
         ],
       ),

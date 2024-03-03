@@ -9,7 +9,7 @@ class OrderSuccesScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset("images/success.png"),
+          Image.network("https://i.gifer.com/7efs.gif"),
           Text("Success!"),
           Text("Your order will be delivered soon."),
           Text("Thank you for choosing our system."),

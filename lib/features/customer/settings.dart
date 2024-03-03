@@ -36,41 +36,41 @@ class SettingsScreen extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
+              // SizedBox(
+              //   height: 105,
+              //   width: 105,
+              //   child: Stack(fit: StackFit.expand, children: [
+              //     Obx(() {
+              //       final networkImage = controller.user.value.profilePicture;
+              //       final image = networkImage.isEmpty
+              //           ? networkImage
+              //           : CustomImages.profile;
+              //       return TCircularImage(
+              //           image: image,
+              //           width: 80,
+              //           height: 80,
+              //           isNetworkImage: networkImage.isNotEmpty);
+              //     }),
+              //     Positioned(
+              //       right: 0,
+              //       bottom: 0,
+              //       child: Container(
+              //         decoration: BoxDecoration(
+              //             color:
+              //                 Color.fromARGB(255, 5, 91, 12).withOpacity(0.7),
+              //             borderRadius: BorderRadius.circular(100)),
+              //         height: 45,
+              //         width: 45,
+              //         child: IconButton(
+              //             onPressed: () => Get.to(() => const ProfileScreen()),
+              //             color: Colors.white,
+              //             icon: Icon(Iconsax.edit_copy, color: Colors.white)),
+              //       ),
+              //     ),
+              //   ]),
+              // ),
               SizedBox(
-                height: 105,
-                width: 105,
-                child: Stack(fit: StackFit.expand, children: [
-                  Obx(() {
-                    final networkImage = controller.user.value.profilePicture;
-                    final image = networkImage.isEmpty
-                        ? networkImage
-                        : CustomImages.profile;
-                    return TCircularImage(
-                        image: image,
-                        width: 80,
-                        height: 80,
-                        isNetworkImage: networkImage.isNotEmpty);
-                  }),
-                  Positioned(
-                    right: 0,
-                    bottom: 0,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color:
-                              Color.fromARGB(255, 5, 91, 12).withOpacity(0.7),
-                          borderRadius: BorderRadius.circular(100)),
-                      height: 45,
-                      width: 45,
-                      child: IconButton(
-                          onPressed: () => Get.to(() => const ProfileScreen()),
-                          color: Colors.white,
-                          icon: Icon(Iconsax.edit_copy, color: Colors.white)),
-                    ),
-                  ),
-                ]),
-              ),
-              SizedBox(
-                height: 10,
+                height: 50,
               ),
               Text(
                 controller.user.value.username,
@@ -81,7 +81,7 @@ class SettingsScreen extends StatelessWidget {
               ),
               Text(controller.user.value.email),
               SizedBox(
-                height: 25,
+                height: 70,
               ),
               const Align(
                   alignment: Alignment(-0.85, -0.55),

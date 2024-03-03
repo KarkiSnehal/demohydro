@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hydrogang/Widgets/productverticalcard.dart';
-import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 class AddtoCartScreen extends StatelessWidget {
   const AddtoCartScreen({super.key});
 
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,21 +21,7 @@ class AddtoCartScreen extends StatelessWidget {
           child: Padding(
         padding: EdgeInsets.all(10),
         child: Column(
-          children: [
-            GridView.builder(
-              itemCount: 4,
-              shrinkWrap: true,
-              padding: EdgeInsets.only(top: 8),
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                mainAxisExtent: 288,
-              ),
-              itemBuilder: (_, index) => CProductCardVertical(),
-            ),
-          ],
+          children: [],
         ),
       )),
     );

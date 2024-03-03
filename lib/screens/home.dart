@@ -3,57 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:hydrogang/Widgets/search_delegate_widget.dart';
-import 'package:hydrogang/controllers/productcontroller.dart';
 
 import 'package:hydrogang/screens/drawernav.dart';
 import 'package:hydrogang/screens/fruits.dart';
 import 'package:hydrogang/screens/leafy_greens.dart';
 import 'package:hydrogang/utilities/constants/text_strings.dart';
-import 'package:hydrogang/views/search.dart';
+
 import 'package:iconsax_flutter/iconsax_flutter.dart';
-import 'package:hydrogang/Widgets/productverticalcard.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   // Function to get the current location
-  Future<void> getCurrentLocation() async {
-    try {
-      Position? position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
-      );
-
-      if (position != null) {
-        // Location is available, show the dialog
-        _showLocationDialog(position.latitude, position.longitude);
-      } else {
-        // Location is null, handle accordingly (show a message, log, etc.)
-        print("Error getting location: Position is null");
-      }
-    } catch (e) {
-      print("Error getting location: $e");
-      // Handle errors or show a message to the user
-    }
-  }
-
-  // Function to display the location in a dialog
-  void _showLocationDialog(double latitude, double longitude) {
-    showDialog(
-      context: Get.context!,
-      builder: (context) => AlertDialog(
-        title: Text("Current Location"),
-        content: Text("Latitude: $latitude\nLongitude: $longitude"),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text("OK"),
-          ),
-        ],
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
